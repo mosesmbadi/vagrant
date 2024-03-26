@@ -125,3 +125,12 @@ symbolic links.
 
 The recommendation is to make sure to test symbolic links on all the
 host/guest combinations you sync folders on if this is important to you.
+
+It's important to note that if you sync your shared folder to /home/vagrant you'll not ssh into your box as this
+clears your home directory which will have the .ssh
+
+This is wont work,
+`config.vm.synced_folder ".", "/home/vagrant/"`
+
+This will work
+`config.vm.synced_folder ".", "/home/vagrant/shared"`
